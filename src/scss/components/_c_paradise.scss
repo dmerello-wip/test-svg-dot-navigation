@@ -1,0 +1,23 @@
+.paradise {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow-y: scroll;
+  > svg {
+    position: fixed;
+    top:0;
+    left:0;
+    width: 100%;
+    height: auto;
+    pointer-events: none; // to preserve scroll event
+    .paradise__path {
+      pointer-events: none;
+    }
+  }
+  &__scroller {
+    position: relative;
+    background: blue;
+    width: 1rem;
+    height: 400vh;
+  }
+}

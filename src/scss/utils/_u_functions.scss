@@ -1,0 +1,14 @@
+/* ------ getting values from a map with alert ----- */
+
+@function map($map, $key) {
+  @if not map-has-key($map, $key) {
+    @warn "Key `#{$key}` not found in $map map.";
+  }
+  @return map-get($map, $key);
+}
+
+//Pixels to REM
+@function rem($value, $base-font-size:16){
+  $remVal : $value / $base-font-size;
+  @return $remVal * 1rem;
+}

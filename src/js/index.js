@@ -5,7 +5,7 @@ export default class App {
   init() {
     console.log('app started');
     this.importController();
-    this.setupServiceWorker();
+    // this.setupServiceWorker();
   }
 
   setupServiceWorker(){

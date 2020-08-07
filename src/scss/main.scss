@@ -56,24 +56,23 @@
 /* 4.1 Utils:                                                       */
 /* ---------------------------------------------------------------- */
 
-// @import "./utils/_u_typography";
-// @import "./utils/_u_utilityClasses";
-// @import "./utils/_u_buttons";
-
+@import "./utils/u_functions";
+@import "./utils/u_normalize";
+@import "./utils/u-z-indexes";
+@import "./utils/u_grid";
 
 /* ---------------------------------------------------------------- */
 /* 4.2 Components:                                                  */
 /* ---------------------------------------------------------------- */
 
-// @import "./components/_c_header";
-// @import "./components/_c_productCard";
-
+@import "./components/_c_paradise";
 
 /* ---------------------------------------------------------------- */
 /* 4.3 Layouts:                                                     */
 /* ---------------------------------------------------------------- */
 
-//@import "./layouts/_l_home";
+ @import "./layouts/_l_basics";
+// @import "./layouts/_l_home";
 // @import "./layouts/_l_productPage";
 // @import "./layouts/_l_serviceListing";
 

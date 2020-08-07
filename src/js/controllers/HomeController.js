@@ -11,10 +11,8 @@ export default class Home extends Controller {
     super();
     console.log('Home Page Controller inited');
 
-    // e.g. importing a test component and instancing it 2 times:
-    this.importComponents(`TestComponent`).then(({default: comp}) => {
-      let firstTestInited = new comp('first test instance');
-      let secondTestInited = new comp('second test instance');
+    this.importComponents(`Paradise`).then(({default: comp}) => {
+      window.onload = () => { new comp('navigation'); }
     });
 
   }
