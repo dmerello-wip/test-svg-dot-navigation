@@ -3,6 +3,7 @@
   width: 100vw;
   height: 100vh;
   overflow-y: scroll;
+  z-index: $z-i-main;
   > svg {
     position: fixed;
     top:0;
