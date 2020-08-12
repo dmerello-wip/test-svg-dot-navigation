@@ -1,3 +1,5 @@
+$scrollAmount : 4;
+
 .paradise {
   position: relative;
   width: 100vw;
@@ -27,6 +29,6 @@
     position: relative;
     background: blue;
     width: 1rem;
-    height: 400vh;
+    height: calc(100vh * #{$scrollAmount});
   }
 }
