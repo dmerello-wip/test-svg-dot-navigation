@@ -9,8 +9,8 @@ export default class Paradise {
     this.menuItems = document.querySelectorAll(`.primary-menu a`);
 
     this.totalLength = this.curve.getTotalLength();
-    this.startingPosition = 0;
-    this.setPosition(this.startingPosition);
+    this.dotPosition = 0;
+    this.setPosition();
 
     this.wrapper.addEventListener('scroll', ()=>{
       this.setPositionOnScroll();
@@ -28,26 +28,27 @@ export default class Paradise {
     let toScroll = (this.scroller.offsetHeight - this.wrapper.offsetHeight) ;
     let scrolled = this.wrapper.scrollTop;
     let perc = (scrolled * 100) / toScroll ;
-    let position = perc/100;
-    this.setPosition(position);
+    this.dotPosition = perc/100;
+    this.setPosition();
   }
 
   setPositionOnClick(e){
     e.preventDefault();
     let targetPosition = e.target.dataset.position;
     let p = this.curve.getPointAtLength( targetPosition *  this.totalLength);
-    var currentPosition = {value:0};
+    var currentPosition = {value:this.dotPosition};
     TweenMax.to(currentPosition, 2, {
       value: targetPosition,
       ease:Strong.easeInOut,
       onUpdate:()=>{
-        this.setPosition(currentPosition.value);
+        this.dotPosition = currentPosition.value;
+        this.setPosition();
       }
     });
   }
 
-  setPosition(position){
-    let p = this.curve.getPointAtLength( position *  this.totalLength);
+  setPosition(){
+    let p = this.curve.getPointAtLength( this.dotPosition *  this.totalLength);
     this.dot.setAttribute("transform", `translate(${p.x}, ${p.y})`);
   }
 }
