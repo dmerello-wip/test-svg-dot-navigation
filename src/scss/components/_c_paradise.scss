@@ -13,6 +13,14 @@
     pointer-events: none; // to preserve scroll event
     .paradise__path {
       pointer-events: none;
+      fill:none;
+      stroke:white;
+      stroke-width:2px;
+    }
+    .paradise__cursor {
+      fill: red;
+      stroke: white;
+      stroke-width:2px;
     }
   }
   &__scroller {

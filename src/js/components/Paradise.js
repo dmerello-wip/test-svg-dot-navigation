@@ -13,7 +13,7 @@ export default class Paradise {
     this.setPosition(this.startingPosition);
 
     this.wrapper.addEventListener('scroll', ()=>{
-      this.initCursorInteraction();
+      this.setPositionOnScroll();
     });
 
     this.menuItems.forEach((el, index)=>{
@@ -24,12 +24,7 @@ export default class Paradise {
 
   }
 
-  setPosition(position){
-    let p = this.curve.getPointAtLength( position *  this.totalLength);
-    this.dot.setAttribute("transform", `translate(${p.x}, ${p.y})`);
-  }
-
-  initCursorInteraction(e){
+  setPositionOnScroll(e){
     let toScroll = (this.scroller.offsetHeight - this.wrapper.offsetHeight) ;
     let scrolled = this.wrapper.scrollTop;
     let perc = (scrolled * 100) / toScroll ;
@@ -39,13 +34,21 @@ export default class Paradise {
 
   setPositionOnClick(e){
     e.preventDefault();
-    let position = e.target.dataset.position;
-    let p = this.curve.getPointAtLength( position *  this.totalLength);
-    console.log(p);
-    this.animation = TweenMax.to(this.dot, 1, {
-      transform: `translate(${p.x}, ${p.y})`,
-      ease:Strong.easeOut
+    let targetPosition = e.target.dataset.position;
+    let p = this.curve.getPointAtLength( targetPosition *  this.totalLength);
+    var currentPosition = {value:0};
+    TweenMax.to(currentPosition, 2, {
+      value: targetPosition,
+      ease:Strong.easeInOut,
+      onUpdate:()=>{
+        this.setPosition(currentPosition.value);
+      }
     });
+  }
+
+  setPosition(position){
+    let p = this.curve.getPointAtLength( position *  this.totalLength);
+    this.dot.setAttribute("transform", `translate(${p.x}, ${p.y})`);
   }
 }
 
