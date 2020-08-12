@@ -6,9 +6,9 @@ export default class Paradise {
 
     // dom elements selectors
     this.wrapper = document.getElementById(wrapperId);
+    this.track = this.wrapper.querySelector(`.paradise__track`);
     this.dot = this.wrapper.querySelector(`.paradise__cursor`);
     this.curve = this.wrapper.querySelector(`.paradise__path`);
-    this.scroller = this.wrapper.querySelector(`.paradise__scroller`);
     this.menuItems = document.querySelectorAll(`.primary-menu a`);
     this.viewbox = {
       w : this.wrapper.querySelector('svg').getAttribute('viewBox').split(' ')[2],
@@ -52,11 +52,10 @@ export default class Paradise {
     // move the cursor in those coords
     this.dot.setAttribute("transform", `translate(${p.x}, ${p.y})`);
 
-    // shift wrapper in window as cursor in svg viewbox
-    let shiftX =  - ((this.wrapper.offsetWidth * p.x) / this.viewbox.w ) / 2;
-    let shiftY =  - ((this.wrapper.offsetHeight * p.y) / this.viewbox.h ) / 2;
-    this.wrapper.style.top = `${shiftY}px`;
-    this.wrapper.style.left = `${shiftX}px`;
+    // shift track in window as cursor in svg viewbox
+    let shiftX =  - ((this.track.offsetWidth * p.x) / this.viewbox.w ) + (window.innerWidth / 2);
+    let shiftY =  - ((this.track.offsetHeight * p.y) / this.viewbox.h ) + (window.innerHeight / 2);
+    this.track.style.transform = `translate(${shiftX}px, ${shiftY}px)`;
   }
 }
 

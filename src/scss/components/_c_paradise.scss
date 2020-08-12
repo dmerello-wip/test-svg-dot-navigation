@@ -2,23 +2,34 @@
   position: fixed;
   top:0;
   left:0;
-  width: 200vw;
-  height: auto;
+  width: 100vw;
+  height: 100vh;
   z-index: $z-i-main;
-  > svg {
-    width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  &__track {
+    position: absolute;
+    top:0;
+    left:0;
+    width: 300%;
     height: auto;
-    pointer-events: none; // to preserve scroll event
-    .paradise__path {
-      pointer-events: none;
-      fill:none;
-      stroke:white;
-      stroke-width:2px;
-    }
-    .paradise__cursor {
-      fill: red;
-      stroke: white;
-      stroke-width:2px;
+    > svg {
+      width: 100%;
+      height: auto;
+      pointer-events: none; // to preserve scroll event
+      .paradise__path {
+        pointer-events: none;
+        fill:none;
+        stroke:white;
+        stroke-width:2px;
+      }
+      .paradise__cursor {
+        fill: red;
+        stroke: white;
+        stroke-width:2px;
+      }
     }
   }
 }
