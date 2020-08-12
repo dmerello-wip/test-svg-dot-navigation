@@ -10,55 +10,55 @@ export default class Paradise {
     this.curve = this.wrapper.querySelector(`.paradise__path`);
     this.scroller = this.wrapper.querySelector(`.paradise__scroller`);
     this.menuItems = document.querySelectorAll(`.primary-menu a`);
+    this.viewbox = {
+      w : this.wrapper.querySelector('svg').getAttribute('viewBox').split(' ')[2],
+      h : this.wrapper.querySelector('svg').getAttribute('viewBox').split(' ')[3]
+    }
+
 
     // curve size
     this.totalLength = this.curve.getTotalLength();
 
-    // first position set
-    this.dotPosition = 0;
+    // first position set from 0 to 1
+    this.partial = 0;
     this.moveCursor();
 
-
     // init interactions
-    this.wrapper.addEventListener('scroll', ()=>{
-      this.setPositionOnScroll();
-    });
-
     this.menuItems.forEach((el, index)=>{
       el.addEventListener('click', (e)=>{
         this.setPositionOnClick(e);
       });
     });
-
   }
 
-  setPositionOnScroll(e){
-    let toScroll = (this.scroller.offsetHeight - this.wrapper.offsetHeight) ;
-    let scrolled = this.wrapper.scrollTop;
-    let perc = (scrolled * 100) / toScroll ;
-    this.dotPosition = perc/100;
-    this.moveCursor();
-  }
 
   setPositionOnClick(e){
     e.preventDefault();
-    let targetPosition = e.target.dataset.position;
-    let p = this.curve.getPointAtLength( targetPosition *  this.totalLength);
-    var currentPosition = {value:this.dotPosition};
-    TweenMax.to(currentPosition, 2, {
-      value: targetPosition,
-      ease:Strong.easeOut,
-      onUpdate:()=>{
-        this.dotPosition = currentPosition.value;
+    let toPartial = e.target.dataset.partial;
+    let currentPartial = { value : this.partial };
+    TweenMax.to(currentPartial, 2, {
+      value: toPartial,
+      ease: Strong.easeOut,
+      onUpdate: () => {
+        this.partial = currentPartial.value;
         this.moveCursor();
       }
     });
   }
 
   moveCursor(){
-    let p = this.curve.getPointAtLength( this.dotPosition *  this.totalLength);
+    // get the coords in viewbox for the point in the partial value
+    let p = this.curve.getPointAtLength( this.partial *  this.totalLength);
+    // move the cursor in those coords
     this.dot.setAttribute("transform", `translate(${p.x}, ${p.y})`);
+
+    // shift wrapper in window as cursor in svg viewbox
+    let shiftX =  - ((this.wrapper.offsetWidth * p.x) / this.viewbox.w ) / 2;
+    let shiftY =  - ((this.wrapper.offsetHeight * p.y) / this.viewbox.h ) / 2;
+    this.wrapper.style.top = `${shiftY}px`;
+    this.wrapper.style.left = `${shiftX}px`;
   }
 }
+
 
 

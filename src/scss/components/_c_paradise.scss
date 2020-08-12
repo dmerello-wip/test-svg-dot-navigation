@@ -1,15 +1,11 @@
-$scrollAmount : 4;
-
 .paradise {
-  position: relative;
-  width: 100vw;
-  height: 100vh;
-  overflow-y: scroll;
+  position: fixed;
+  top:0;
+  left:0;
+  width: 200vw;
+  height: auto;
   z-index: $z-i-main;
   > svg {
-    position: fixed;
-    top:0;
-    left:0;
     width: 100%;
     height: auto;
     pointer-events: none; // to preserve scroll event
@@ -24,11 +20,5 @@ $scrollAmount : 4;
       stroke: white;
       stroke-width:2px;
     }
-  }
-  &__scroller {
-    position: relative;
-    background: blue;
-    width: 1rem;
-    height: calc(100vh * #{$scrollAmount});
   }
 }
