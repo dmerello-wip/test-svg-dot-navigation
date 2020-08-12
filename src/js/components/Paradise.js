@@ -36,6 +36,9 @@ export default class Paradise {
     e.preventDefault();
     let toPartial = e.target.dataset.partial;
     let currentPartial = { value : this.partial };
+
+    //TODO: calculate difference in position: speed is to set proportional to distance
+
     TweenMax.to(currentPartial, 2, {
       value: toPartial,
       ease: Strong.easeOut,
