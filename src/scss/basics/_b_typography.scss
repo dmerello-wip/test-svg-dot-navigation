@@ -1,0 +1,55 @@
+html {
+  font-family: $font-family-base;
+  font-size: 16px;
+}
+//These classes got to be extended into components, not to place as class attribute
+
+/* -------- CARD DATA-MODEL STANDARDS -------- */
+
+.pretitle {
+  font-size: rem(16);
+  text-transform: uppercase;
+  line-height: 1em;
+  padding: 0.2rem 0;
+  font-family: $headings-font-family-bold;
+}
+
+.title {
+  font-size: rem(30);
+  line-height: 1em;
+  padding: 0.4rem 0;
+  font-family: $headings-font-family-regular;
+}
+
+.subtitle {
+  font-size:rem(16);
+  line-height: 1em;
+  padding: 0.2rem 0;
+  font-family: $headings-font-family-bold;
+}
+
+.description {
+  font-size: 1rem;
+  line-height: 1.4rem;
+  padding: 1.6rem 0;
+}
+
+@include responsiveTo('md'){
+
+  /* -------- CARD DATA-MODEL STANDARDS -------- */
+  .pretitle{
+    font-size: rem(15);
+  }
+  .subtitle{
+    font-size: rem(15);
+  }
+  .description{
+    font-size: rem(15);
+  }
+
+  /* -------- WRAPPER DATA-MODEL STANDARDS -------- */
+  .wrapper-title {
+    font-size: rem(32);
+  }
+
+}

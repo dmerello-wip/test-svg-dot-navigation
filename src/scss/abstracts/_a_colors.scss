@@ -1,0 +1,26 @@
+$theme-colors: (
+  'primary':#000000,
+  'inverted':#ffffff,
+  'lightergray': #E6E6E6,
+  'lightgray': #B5B5B5,
+  'darkgray': #242424,
+);
+
+
+// creates classes for color and background with each variant color
+@each $color,$val in $theme-colors{
+  .bg-#{$color}{
+    background-color: $val;
+  }
+  .color-#{$color}{
+    color: $val;
+  }
+  :root{
+    --color-#{$color}: #{$val};
+  }
+}
+
+
+@function getColor($key:'primary'){
+  @return map-get($theme-colors, $key)
+}

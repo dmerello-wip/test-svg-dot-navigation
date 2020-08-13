@@ -22,12 +22,12 @@
       .paradise__path {
         pointer-events: none;
         fill:none;
-        stroke:white;
+        stroke: getColor('lightgray');
         stroke-width:2px;
       }
       .paradise__cursor {
-        fill: red;
-        stroke: white;
+        fill: getColor('primary');
+        stroke: getColor('lightgray');
         stroke-width:2px;
       }
     }

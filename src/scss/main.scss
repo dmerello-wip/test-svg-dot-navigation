@@ -1,5 +1,7 @@
 // TODO: importing from css doesn't permit webpack to manage css chunks
 
+@import "../fonts/clear-sans/style.css";
+
 /* ---------------------------------------------------------------- */
 /* 1. ABSTRACTS                                                     */
 /* ---------------------------------------------------------------- */
@@ -7,8 +9,8 @@
 /* In Abstracts you can write your variables or mixins              */
 /* You override Bootstrap variables even if it's before it          */
 
-// @import "./abstracts/_a_custom_variables";
-// @import "./abstracts/_a_mixins";
+@import "./abstracts/_a_custom_variables";
+@import "./abstracts/_a_colors";
 
 
 /* ---------------------------------------------------------------- */
@@ -62,14 +64,21 @@
 @import "./utils/u_grid";
 
 /* ---------------------------------------------------------------- */
-/* 4.2 Components:                                                  */
+/* 4.2 Basics:                                                      */
+/* ---------------------------------------------------------------- */
+
+@import "basics/b_typography";
+@import "basics/b_buttons";
+
+/* ---------------------------------------------------------------- */
+/* 4.3 Components:                                                  */
 /* ---------------------------------------------------------------- */
 
 @import "./components/_c_paradise";
 @import "./components/_c_primary-menu";
 
 /* ---------------------------------------------------------------- */
-/* 4.3 Layouts:                                                     */
+/* 4.4 Layouts:                                                     */
 /* ---------------------------------------------------------------- */
 
  @import "./layouts/_l_basics";
