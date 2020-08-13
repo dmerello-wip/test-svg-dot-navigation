@@ -36,9 +36,10 @@ export default class Paradise {
     e.preventDefault();
     let currentPartial = { value : this.partial };
     let toPartial = e.target.dataset.partial;
-
     let distance = ((currentPartial.value - toPartial) > 0) ? (currentPartial.value - toPartial) : (toPartial - currentPartial.value);
     let velocity = 4 * ( distance + 0.5 ); // variability * ( distance + minimum duration base)
+
+    // Animate the numeric position factor:
     TweenMax.to(currentPartial, velocity, {
       value: toPartial,
       ease: Strong.easeOut,
@@ -52,6 +53,7 @@ export default class Paradise {
   moveCursor(){
     // get the coords in viewbox for the point in the partial value
     let p = this.curve.getPointAtLength( this.partial *  this.totalLength);
+
     // move the cursor in those coords
     this.dot.setAttribute("transform", `translate(${p.x}, ${p.y})`);
 
@@ -59,6 +61,7 @@ export default class Paradise {
     let shiftX =  - ((this.track.offsetWidth * p.x) / this.viewbox.w ) + (window.innerWidth / 2);
     let shiftY =  - ((this.track.offsetHeight * p.y) / this.viewbox.h ) + (window.innerHeight / 2);
     this.track.style.transform = `translate(${shiftX}px, ${shiftY}px)`;
+
   }
 }
 
