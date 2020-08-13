@@ -34,12 +34,12 @@ export default class Paradise {
 
   setPositionOnClick(e){
     e.preventDefault();
-    let toPartial = e.target.dataset.partial;
     let currentPartial = { value : this.partial };
+    let toPartial = e.target.dataset.partial;
 
-    //TODO: calculate difference in position: speed is to set proportional to distance
-
-    TweenMax.to(currentPartial, 2, {
+    let distance = ((currentPartial.value - toPartial) > 0) ? (currentPartial.value - toPartial) : (toPartial - currentPartial.value);
+    let velocity = 4 * ( distance + 0.5 ); // variability * ( distance + minimum duration base)
+    TweenMax.to(currentPartial, velocity, {
       value: toPartial,
       ease: Strong.easeOut,
       onUpdate: () => {
