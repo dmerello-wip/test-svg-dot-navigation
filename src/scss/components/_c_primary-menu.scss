@@ -20,6 +20,9 @@
       flex-direction: row;
       justify-content: flex-end;
       align-items: center;
+      font-family: $font-family-bold;
+      letter-spacing: 1px;
+      text-transform: uppercase;
       &::after {
         border-top:1px solid white;
         content: '';
@@ -41,7 +44,7 @@
           flex: 0 0 1.5rem;
         }
         a {
-          transform: scale(1.2);
+          transform: scale(1.2) translateX(-1rem);
         }
       }
     }

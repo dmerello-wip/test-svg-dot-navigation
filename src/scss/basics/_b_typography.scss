@@ -11,21 +11,21 @@ html {
   text-transform: uppercase;
   line-height: 1em;
   padding: 0.2rem 0;
-  font-family: $headings-font-family-bold;
+  font-family: $font-family-bold;
 }
 
 .title {
   font-size: rem(30);
   line-height: 1em;
   padding: 0.4rem 0;
-  font-family: $headings-font-family-regular;
+  font-family: $font-family-regular;
 }
 
 .subtitle {
   font-size:rem(16);
   line-height: 1em;
   padding: 0.2rem 0;
-  font-family: $headings-font-family-bold;
+  font-family: $font-family-bold;
 }
 
 .description {
