@@ -13,8 +13,7 @@ export default class Paradise {
     this.viewbox = {
       w : this.wrapper.querySelector('svg').getAttribute('viewBox').split(' ')[2],
       h : this.wrapper.querySelector('svg').getAttribute('viewBox').split(' ')[3]
-    }
-
+    };
 
     // curve size
     this.totalLength = this.curve.getTotalLength();
