@@ -32,4 +32,21 @@
       }
     }
   }
+  &__content {
+    $contentW: 40vw;
+    display: none;
+    position: absolute;
+    padding: 3rem;
+    top:50%;
+    left:50%;
+    width: $contentW;
+    transform: translate(calc(-50% - #{$contentW/2} - 5vw), -50%);
+    color: getColor('inverted');
+    border: 1px solid getColor('inverted');
+    background: getColor('primary');
+    z-index: $z-i-modal;
+    &--opened {
+      display: block;
+    }
+  }
 }

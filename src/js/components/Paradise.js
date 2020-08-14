@@ -10,6 +10,7 @@ export default class Paradise {
     this.dot = this.wrapper.querySelector(`.paradise__cursor`);
     this.curve = this.wrapper.querySelector(`.paradise__path`);
     this.menuItems = document.querySelectorAll(`.primary-menu a`);
+    this.content = document.querySelector(`.paradise__content`);
     this.viewbox = {
       w : this.wrapper.querySelector('svg').getAttribute('viewBox').split(' ')[2],
       h : this.wrapper.querySelector('svg').getAttribute('viewBox').split(' ')[3]
@@ -38,6 +39,9 @@ export default class Paradise {
     let distance = ((currentPartial.value - toPartial) > 0) ? (currentPartial.value - toPartial) : (toPartial - currentPartial.value);
     let velocity = 4 * ( distance + 0.5 ); // variability * ( distance + minimum duration base)
 
+
+    this.content.classList.remove('paradise__content--opened');
+
     // Animate the numeric position factor:
     TweenMax.to(currentPartial, velocity, {
       value: toPartial,
@@ -45,6 +49,9 @@ export default class Paradise {
       onUpdate: () => {
         this.partial = currentPartial.value;
         this.moveCursor();
+      },
+      onComplete: ()=> {
+        this.content.classList.add('paradise__content--opened');
       }
     });
   }
