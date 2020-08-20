@@ -6,7 +6,7 @@ export default class Controller {
   /* --------------------------------------------------------------------- */
 
   constructor(){
-    this.importComponents(`CommonComponent`).then(({ default: comp }) => new comp());
+    // this.importComponents(`CommonComponent`).then(({ default: comp }) => new comp());
   }
 
 

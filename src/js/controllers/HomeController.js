@@ -9,7 +9,6 @@ export default class Home extends Controller {
 
   constructor() {
     super();
-    console.log('Home Page Controller inited');
 
     this.importComponents(`Paradise`).then(({default: comp}) => {
       window.onload = () => { new comp('navigation'); }
