@@ -11,36 +11,41 @@
 
   <nav id="main-nav" class="primary-menu">
     <ul>
-      <li><a href="#testLink1" data-partial="0">Milano</a></li>
-      <li><a href="#testLink2" data-partial="0.1">Torino</a></li>
-      <li><a href="#testLink2" data-partial="0.2">Verona</a></li>
-      <li><a href="#testLink2" data-partial="0.3">Brindisi</a></li>
-      <li><a href="#testLink2" data-partial="0.4">Pistoia</a></li>
-      <li><a href="#testLink2" data-partial="0.5">Bari</a></li>
-      <li><a href="#testLink2" data-partial="0.6">Amalfi</a></li>
-      <li><a href="#testLink2" data-partial="0.7">Genova</a></li>
-      <li><a href="#testLink2" data-partial="0.8">Siracusa</a></li>
-      <li><a href="#testLink2" data-partial="0.9">Varese</a></li>
-      <li><a href="#testLink2" data-partial="1">Napoli</a></li>
+      <li><a href="#" data-content="Milano" data-video="concert/1.webm" data-partial="0">Milano</a></li>
+      <li><a href="#" data-content="Torino" data-video="concert/2.webm" data-partial="0.1">Torino</a></li>
+      <li><a href="#" data-content="Verona" data-video="concert/3.webm" data-partial="0.2">Verona</a></li>
+      <li><a href="#" data-content="Brindisi" data-video="concert/1.webm" data-partial="0.3">Brindisi</a></li>
+      <li><a href="#" data-content="Pistoia" data-video="concert/2.webm" data-partial="0.4">Pistoia</a></li>
+      <li><a href="#" data-content="Bari" data-video="concert/3.webm" data-partial="0.5">Bari</a></li>
+      <li><a href="#" data-content="Amalfi" data-video="concert/1.webm" data-partial="0.6">Amalfi</a></li>
+      <li><a href="#" data-content="Genova" data-video="concert/2.webm" data-partial="0.7">Genova</a></li>
+      <li><a href="#" data-content="Siracusa" data-video="concert/3.webm" data-partial="0.8">Siracusa</a></li>
+      <li><a href="#" data-content="Varese" data-video="concert/1.webm" data-partial="0.9">Varese</a></li>
+      <li><a href="#" data-content="Napoli" data-video="concert/2.webm" data-partial="1">Napoli</a></li>
     </ul>
   </nav>
 
   <div class="paradise" id="navigation">
-    <div class="paradise__content">
-      <h1>Hey, here is a title...</h1>
-      <p>Here is some content as an abstract Here is some content as an abstract Here is some content as an abstract Here is some content as an abstract Here is some content as an abstract </p>
+    <div class="paradise__video">
+      <video id="concert" autoplay >
+        <source src="concert/1.webm" type="video/webm" onloadstart="this.volume=0">
+      </video>
     </div>
     <div class="paradise__track">
       <svg viewBox="0 0 1024 438" xmlns="http://www.w3.org/2000/svg">
         <path class="paradise__path"  d="M511.5,417.407c110.104,0 195.274,-87.553 257.753,-167.94c30.295,-38.978 51.875,-83.731 97.037,-107.973c21.979,-11.799 39.439,-13.951 63.983,-13.93c78.382,0.066 101.676,108.722 54.224,158.77c-16.556,17.461 -41.002,24.943 -64.632,24.529c-75.523,-1.324 -110.367,-70.55 -150.612,-122.33c-62.479,-80.387 -147.649,-167.94 -257.753,-167.94c-110.104,0 -195.274,87.553 -257.753,167.94c-30.295,38.978 -51.875,83.731 -97.037,107.973c-21.979,11.799 -39.439,13.951 -63.983,13.93c-78.382,-0.066 -101.676,-108.722 -54.224,-158.77c16.556,-17.461 41.002,-24.943 64.632,-24.529c75.523,1.324 110.367,70.55 150.612,122.33c62.479,80.387 147.649,167.94 257.753,167.94Z"
         />
         <circle
-                r="6"
+                r="4"
                 cy="0"
                 cx="0"
                 class="paradise__cursor"
         />
       </svg>
+    </div>
+    <div class="paradise__content">
+      <h1>Hey, here is a title...</h1>
+      <p>lorem ipsum cum esset ad siquitur concerto</p>
     </div>
   </div>
 

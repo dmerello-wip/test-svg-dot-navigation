@@ -9,6 +9,22 @@
   justify-content: center;
   align-items: center;
   overflow: hidden;
+  &__content {
+    $contentW: 40vw;
+    display: none;
+    position: absolute;
+    padding: 3rem;
+    top:50%;
+    left:50%;
+    width: $contentW;
+    transform: translate(calc(-50% - #{$contentW/2} - 5vw), -50%);
+    color: getColor('inverted');
+    //border: 1px solid getColor('inverted');
+    //background: getColor('primary');
+    &--opened {
+      display: block;
+    }
+  }
   &__track {
     position: absolute;
     top:0;
@@ -32,21 +48,42 @@
       }
     }
   }
-  &__content {
-    $contentW: 40vw;
-    display: none;
-    position: absolute;
-    padding: 3rem;
-    top:50%;
-    left:50%;
-    width: $contentW;
-    transform: translate(calc(-50% - #{$contentW/2} - 5vw), -50%);
-    color: getColor('inverted');
-    border: 1px solid getColor('inverted');
-    background: getColor('primary');
-    z-index: $z-i-modal;
-    &--opened {
+  &__video {
+    position: fixed;
+    top: 50%; left: 50%;
+    transform: translate(-50%,-50%);
+    width: 100vw;
+    height: 100vh;
+    opacity: 0.3;
+    overflow: hidden;
+  }
+}
+
+
+@include responsiveTo('lg') {
+  .paradise {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    &__video {
+      width: auto;
+      height: 100vh;
+      video {
+        width: auto;
+        height: 100vh;
+      }
+    }
+  }
+}
+
+@include responsiveFrom('lg') {
+  .paradise {
+    &__video {
       display: block;
+      video {
+        width: 130vw;
+        height: auto;
+      }
     }
   }
 }

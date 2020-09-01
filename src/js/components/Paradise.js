@@ -15,6 +15,7 @@ export default class Paradise {
       w : this.wrapper.querySelector('svg').getAttribute('viewBox').split(' ')[2],
       h : this.wrapper.querySelector('svg').getAttribute('viewBox').split(' ')[3]
     };
+    this.videowrapper =  this.wrapper.querySelector(`.paradise__video video`);
 
     // curve size
     this.totalLength = this.curve.getTotalLength();
@@ -27,6 +28,7 @@ export default class Paradise {
     this.menuItems.forEach((el, index)=>{
       el.addEventListener('click', (e)=>{
         this.setPositionOnClick(e);
+        this.setContentOnClick(e);
       });
     });
   }
@@ -38,7 +40,6 @@ export default class Paradise {
     let toPartial = e.target.dataset.partial;
     let distance = ((currentPartial.value - toPartial) > 0) ? (currentPartial.value - toPartial) : (toPartial - currentPartial.value);
     let velocity = 4 * ( distance + 0.5 ); // variability * ( distance + minimum duration base)
-
 
     this.content.classList.remove('paradise__content--opened');
 
@@ -54,6 +55,13 @@ export default class Paradise {
         this.content.classList.add('paradise__content--opened');
       }
     });
+  }
+
+  setContentOnClick(e){
+    let video = e.target.dataset.video;
+    let content = e.target.dataset.content;
+    this.videowrapper.setAttribute('src', video);
+    this.content.querySelector('h1').innerHTML = content;
   }
 
   moveCursor(){
